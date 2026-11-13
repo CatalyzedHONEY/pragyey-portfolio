@@ -166,12 +166,7 @@ export default function Hero() {
             className="absolute bottom-10 h-[65%] w-[75%] bg-[#e5232d]/10 blur-3xl"
           />
 
-          <div
-            data-hero="parallax"
-            className="absolute right-0 top-10 z-0 font-display text-[clamp(5rem,12vw,12rem)] leading-none text-white/[0.035]"
-          >
-            PKG
-          </div>
+           
 
           <img
             data-hero="portrait"
