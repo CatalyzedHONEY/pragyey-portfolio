@@ -26,7 +26,7 @@ export default function Contact() {
       <div className="container">
         <div className="mb-12 flex items-center gap-4">
           <span className="text-xs tracking-[0.3em] text-[#e5232d]">
-            05 / CONTACT
+            07 / CONTACT
           </span>
           <div className="h-px flex-1 bg-white/15" />
         </div>

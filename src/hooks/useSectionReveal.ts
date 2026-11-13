@@ -1,7 +1,10 @@
 import { useLayoutEffect, type RefObject } from 'react'
 import { gsap } from '../lib/gsap'
 
-export function useSectionReveal(rootRef: RefObject<HTMLElement | null>) {
+export function useSectionReveal(
+  rootRef: RefObject<HTMLElement | null>,
+  revision = 0,
+) {
   useLayoutEffect(() => {
     const root = rootRef.current
     if (!root) return
@@ -73,5 +76,5 @@ export function useSectionReveal(rootRef: RefObject<HTMLElement | null>) {
     }, root)
 
     return () => ctx.revert()
-  }, [rootRef])
+  }, [rootRef, revision])
 }

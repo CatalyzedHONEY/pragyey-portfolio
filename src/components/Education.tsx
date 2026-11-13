@@ -1,10 +1,11 @@
 import { useRef } from 'react'
-import { education } from '../data/education'
+import { useEducation } from '../hooks/useEducation'
 import { useSectionReveal } from '../hooks/useSectionReveal'
 
 export default function Education() {
   const rootRef = useRef<HTMLElement>(null)
-  useSectionReveal(rootRef)
+  const education = useEducation()
+  useSectionReveal(rootRef, education.length)
 
   return (
     <section
@@ -60,15 +61,22 @@ export default function Education() {
               </div>
 
               <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-[#d6ad54]">
-                  {item.status}
-                </p>
+                {item.status && (
+                  <p className="text-xs uppercase tracking-[0.22em] text-[#d6ad54]">
+                    {item.status}
+                  </p>
+                )}
                 <h3 className="display-font mt-4 text-3xl leading-none md:text-4xl">
-                  {item.degree}
+                  {item.degree || item.institution}
                 </h3>
-                <p className="editorial-font mt-4 text-xl italic text-white/60">
-                  {item.institution}
-                </p>
+                {item.degree && (
+                  <p className="editorial-font mt-4 text-xl italic text-white/60">
+                    {item.institution}
+                  </p>
+                )}
+                {item.fieldOfStudy && (
+                  <p className="mt-4 text-sm text-white/60">{item.fieldOfStudy}</p>
+                )}
               </div>
 
               <div className="grid gap-6 sm:grid-cols-2 lg:content-start">
@@ -83,12 +91,43 @@ export default function Education() {
                   </div>
                 )}
 
+                {item.semesterLabel && (
+                  <div className="border-l border-white/15 pl-5">
+                    <p className="text-xs uppercase tracking-widest text-white/40">
+                      Semester
+                    </p>
+                    <p className="mt-3 text-sm text-white/90">{item.semesterLabel}</p>
+                  </div>
+                )}
+
                 {item.sgpa != null && (
                   <div className="border-l border-white/15 pl-5">
                     <p className="text-xs uppercase tracking-widest text-white/40">
                       SGPA
                     </p>
                     <p className="mt-3 text-sm text-white/90">{item.sgpa}</p>
+                  </div>
+                )}
+
+                {item.gpaLabel && (
+                  <div className="border-l border-white/15 pl-5">
+                    <p className="text-xs uppercase tracking-widest text-white/40">
+                      GPA / SGPA
+                    </p>
+                    <p className="mt-3 text-sm text-white/90">{item.gpaLabel}</p>
+                  </div>
+                )}
+
+                {(item.startDate || item.endDate) && (
+                  <div className="border-l border-white/15 pl-5 sm:col-span-2">
+                    <p className="text-xs uppercase tracking-widest text-white/40">
+                      Dates
+                    </p>
+                    <p className="mt-3 text-sm text-white/90">
+                      {item.startDate}
+                      {item.startDate && item.endDate ? ' — ' : ''}
+                      {item.endDate}
+                    </p>
                   </div>
                 )}
 
@@ -101,6 +140,12 @@ export default function Education() {
                       {item.officialDegreeTitle}
                     </p>
                   </div>
+                )}
+
+                {item.description && (
+                  <p className="text-sm leading-7 text-white/60 sm:col-span-2">
+                    {item.description}
+                  </p>
                 )}
               </div>
             </li>

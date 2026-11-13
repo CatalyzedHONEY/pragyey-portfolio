@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
-import { projects, type Project } from '../data/projects'
+import { useProjects } from '../hooks/useProjects'
+import type { Project } from '../data/projects'
 import { useSectionReveal } from '../hooks/useSectionReveal'
 
 function ProjectCover({
@@ -36,6 +37,7 @@ function ProjectCover({
 
 export default function Projects() {
   const rootRef = useRef<HTMLElement>(null)
+  const projects = useProjects()
   useSectionReveal(rootRef)
 
   return (
@@ -47,7 +49,7 @@ export default function Projects() {
       <div className="container">
         <div className="mb-12 flex items-center gap-4">
           <span className="text-xs tracking-[0.3em] text-[#e5232d]">
-            04 / PROJECTS
+            05 / PROJECTS
           </span>
           <div className="h-px flex-1 bg-white/15" />
         </div>

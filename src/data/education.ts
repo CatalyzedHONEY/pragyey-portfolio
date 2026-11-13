@@ -1,10 +1,16 @@
 export interface Education {
   degree: string
   institution: string
-  status: 'Currently pursuing' | 'Completed'
+  status?: 'Currently pursuing' | 'Completed'
   currentSemester?: number
+  semesterLabel?: string
   sgpa?: number
+  gpaLabel?: string
   officialDegreeTitle?: string
+  fieldOfStudy?: string
+  startDate?: string
+  endDate?: string
+  description?: string
 }
 
 export const education: Education[] = [

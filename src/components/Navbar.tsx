@@ -4,7 +4,10 @@ import { useState } from 'react'
 const links = [
   { label: 'About', href: '#about' },
   { label: 'Education', href: '#education' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Achievements', href: '#achievements' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -24,7 +27,7 @@ export default function Navbar() {
           PKG<span className="text-[#e5232d]">.</span>
         </a>
 
-        <div className="hidden items-center gap-10 md:flex">
+        <div className="hidden items-center gap-5 lg:flex xl:gap-8">
           {links.map((link) => (
             <a key={link.href} href={link.href} className={navLinkClass}>
               {link.label}
@@ -37,14 +40,14 @@ export default function Navbar() {
           aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-xs uppercase tracking-widest transition-colors duration-300 hover:text-[#e5232d] md:hidden"
+          className="text-xs uppercase tracking-widest transition-colors duration-300 hover:text-[#e5232d] lg:hidden"
         >
           {menuOpen ? 'Close −' : 'Menu +'}
         </button>
       </nav>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-[#090909] px-6 py-8 md:hidden">
+        <div className="border-t border-white/10 bg-[#090909] px-6 py-8 lg:hidden">
           {links.map((link) => (
             <a
               key={link.href}

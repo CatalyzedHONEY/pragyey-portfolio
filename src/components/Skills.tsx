@@ -1,9 +1,11 @@
 import { useRef } from 'react'
-import { skills } from '../data/skills'
+import { useSkills } from '../hooks/useSkills'
 import { useSectionReveal } from '../hooks/useSectionReveal'
 
 export default function Skills() {
   const rootRef = useRef<HTMLElement>(null)
+  const skills = useSkills()
+  
   useSectionReveal(rootRef)
 
   if (skills.length === 0) {
@@ -16,7 +18,7 @@ export default function Skills() {
         <div className="container">
           <div className="mb-12 flex items-center gap-4">
             <span className="text-xs tracking-[0.3em] text-[#e5232d]">
-              03 / SKILLS
+              04 / SKILLS
             </span>
             <div className="h-px flex-1 bg-white/15" />
           </div>
@@ -65,7 +67,7 @@ export default function Skills() {
       <div className="container">
         <div className="mb-12 flex items-center gap-4">
           <span className="text-xs tracking-[0.3em] text-[#e5232d]">
-            03 / SKILLS
+            04 / SKILLS
           </span>
           <div className="h-px flex-1 bg-white/15" />
         </div>

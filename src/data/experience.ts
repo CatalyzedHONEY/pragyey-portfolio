@@ -1,10 +1,13 @@
 export interface Experience {
   id: string
-  title: string
   organization: string
-  description: string
-  period: string
-  type: string
+  role?: string
+  employmentType?: string
+  startDate?: string
+  endDate?: string
+  currentlyWorking?: boolean
+  description?: string
+  technologies?: string[]
 }
 
 export const experience: Experience[] = []

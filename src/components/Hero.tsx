@@ -1,9 +1,11 @@
 
 import { useLayoutEffect, useRef } from 'react'
-import { profile } from '../data/profile'
+import { usePortfolioProfile } from '../hooks/usePortfolioData'
 import { gsap } from '../lib/gsap'
 
 export default function Hero() {
+
+  const profile = usePortfolioProfile()
   const rootRef = useRef<HTMLElement>(null)
   const lastNameLead = profile.lastName.split(' ')[0]
 
