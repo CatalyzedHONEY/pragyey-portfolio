@@ -1,3 +1,7 @@
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -9,7 +13,10 @@ import Achievements from './components/Achievements'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-function App() {
+const Admin = lazy(() => import('./components/Admin'))
+const AdminLogin = lazy(() => import('./components/AdminLogin'))
+
+function Portfolio() {
   return (
     <>
       <Navbar />
@@ -28,4 +35,26 @@ function App() {
   )
 }
 
-export default App
+function AdminLoading() {
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-[#101010] text-[#f3f0e9]">
+      <p className="text-xs uppercase tracking-[0.3em] text-[#d6ad54]">
+        Loading Admin Dashboard...
+      </p>
+    </main>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<AdminLoading />}>
+        <Routes>
+          <Route path="/" element={<Portfolio />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  )
+}

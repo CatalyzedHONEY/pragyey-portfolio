@@ -12,9 +12,11 @@
   "dependencies": {
     "@sanity/client": "^8.16.0",
     "@sanity/image-url": "^2.1.1",
+    "@vercel/functions": "^3.11.3",
     "gsap": "^3.15.1",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import { sanityClient } from '../lib/sanity'
+import { sanityClient, urlFor } from '../lib/sanity'
 import { profile as fallbackProfile } from '../data/profile'
 
 export interface PortfolioProfile {
@@ -68,6 +68,11 @@ export function usePortfolioProfile() {
           role: data.role || previous.role,
           tagline: data.tagline || previous.tagline,
           introduction: data.bio || previous.introduction,
+
+          portrait: data.portrait?.asset?._ref
+            ? urlFor(data.portrait).width(900).url()
+            : previous.portrait,
+
           email: data.email || previous.email,
           github: data.github || previous.github,
           linkedin: data.linkedin || previous.linkedin,
