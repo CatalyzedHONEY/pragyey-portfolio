@@ -106,6 +106,7 @@ export default function Admin() {
     <main className="min-h-screen bg-[#101010] px-6 py-10 text-[#f3f0e9] md:px-12">
       <div className="mx-auto max-w-6xl">
 
+        {/* Header */}
         <header className="flex flex-wrap items-center justify-between gap-5 border-b border-white/10 pb-8">
           <div>
             <p className="text-xs tracking-[0.3em] text-[#e5232d]">
@@ -117,14 +118,24 @@ export default function Admin() {
             </h1>
           </div>
 
-          <Link
-            to="/"
-            className="border border-white/20 px-5 py-3 text-xs uppercase tracking-widest transition hover:border-[#e5232d]"
-          >
-            View portfolio ↗
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/"
+              className="border border-white/20 px-5 py-3 text-xs uppercase tracking-widest transition hover:border-[#e5232d]"
+            >
+              View portfolio ↗
+            </Link>
+
+            <a
+              href="/api/admin-auth?action=logout"
+              className="border border-white/20 px-5 py-3 text-xs uppercase tracking-widest transition hover:border-[#e5232d] hover:text-[#e5232d]"
+            >
+              Logout ↗
+            </a>
+          </div>
         </header>
 
+        {/* Content management heading */}
         <section className="flex flex-wrap items-center justify-between gap-4 py-8">
           <div>
             <p className="text-xs tracking-[0.25em] text-[#d6ad54]">
@@ -143,6 +154,7 @@ export default function Admin() {
           </span>
         </section>
 
+        {/* Profile overview */}
         <section className="mb-12 border border-white/10 bg-white/[0.02] p-6 md:p-8">
           <div className="flex flex-wrap items-start gap-6">
 
@@ -226,6 +238,7 @@ export default function Admin() {
           </div>
         </section>
 
+        {/* Management modules */}
         <section>
           <div className="mb-6">
             <p className="text-xs tracking-[0.25em] text-[#d6ad54]">
@@ -266,6 +279,7 @@ export default function Admin() {
           </div>
         </section>
 
+        {/* Footer */}
         <footer className="mt-16 border-t border-white/10 pt-6 text-xs text-white/30">
           PRAGYEY KUMAR GOUR · PORTFOLIO ADMIN
         </footer>
