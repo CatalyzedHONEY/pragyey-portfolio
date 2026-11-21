@@ -21,7 +21,7 @@ interface Profile {
 }
 
 const studioUrl = (
-  import.meta.env.VITE_SANITY_STUDIO_URL || 'http://localhost:3333'
+  import.meta.env.VITE_SANITY_STUDIO_URL || 'https://pragyey-portfolio.sanity.studio'
 ).replace(/\/$/, '')
 
 const sections = [
